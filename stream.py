@@ -135,7 +135,7 @@ subcategory = df11['subcategory']
 labels=subcategory[:43]
 for category in subcategory[:43]:
     df_b1=df11[df11['subcategory']==category]    
-    fig=px.line(df_b1, x="Year,month", y="Leads_per_ad",labels="subcategory",height=600,width=900) 
+    fig=px.line(df_b1, x="Year,month", y="Leads_per_ad",labels="subcategory",color_discrete_sequence=['red'],height=600,width=900) 
     st.write(category) 
     st.plotly_chart(fig)
 
@@ -153,6 +153,6 @@ region = df13['region']
 labels=region[:16]
 for regions in region[:16]:
     df_b3=df13[df13['region']==regions]    
-    fig=px.line(df_b3, x="Year,month", y="Leads_per_ad",labels="region",color_discrete_sequence=['green'],height=600,width=900 ) 
+    fig=px.line(df_b3, x="Year,month", y="Leads_per_ad",labels="region",color_discrete_sequence=['purple'],height=600,width=900 ) 
     st.write(regions)    
     st.plotly_chart(fig)
