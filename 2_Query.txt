@@ -94,3 +94,39 @@ from analytics_visitors_dm.leads l
 where (l.date >= '2019-01-01' and l.date <='2021-03-31')  
 group by 1,2,3,4 
 order by date desc
+
+select l.date, l.vertical, extract(year from l.date) as year, extract(month from l.date) as month,
+       COUNT(DISTINCT(l.full_visitor_id)) as counts, 
+from analytics_visitors_dm.leads l
+    left join GA_datamart.user_attributes ua on
+    l.full_visitor_id = ua.full_visitor_id and
+    l.date = ua.date and
+    l.visit_id = ua.visit_id and
+    l.platform = ua.platform 
+where (l.date >= '2019-01-01' and l.date <='2021-03-31')  
+group by 1,2,3,4 
+order by date desc
+
+select l.date, l.reply_type, extract(year from l.date) as year, extract(month from l.date) as month,
+       COUNT(DISTINCT(l.full_visitor_id)) as counts, 
+from analytics_visitors_dm.leads l
+    left join GA_datamart.user_attributes ua on
+    l.full_visitor_id = ua.full_visitor_id and
+    l.date = ua.date and
+    l.visit_id = ua.visit_id and
+    l.platform = ua.platform 
+where (l.date >= '2019-01-01' and l.date <='2021-03-31')  
+group by 1,2,3,4 
+order by date desc
+
+select l.date, l.seller_type, extract(year from l.date) as year, extract(month from l.date) as month,
+       COUNT(DISTINCT(l.full_visitor_id)) as counts, 
+from analytics_visitors_dm.leads l
+    left join GA_datamart.user_attributes ua on
+    l.full_visitor_id = ua.full_visitor_id and
+    l.date = ua.date and
+    l.visit_id = ua.visit_id and
+    l.platform = ua.platform 
+where (l.date >= '2019-01-01' and l.date <='2021-03-31')  
+group by 1,2,3,4 
+order by date desc
